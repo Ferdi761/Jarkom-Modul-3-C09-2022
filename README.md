@@ -1,114 +1,84 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
-</p>
+# LAPRES JARKOM B02 MODUL 3 2021  
+### Modul 3: DHCP & Proxy Server
+**Anggota:**
+- 5025201089 	[Andi Muhammad Rafli] 
+- 5025201175 	[Adinda Zahra Pamuji]
+- 5025201245 	[Achmad Ferdiansyah]
 
-<h3 align="center">Project Title</h3>
+## Edit Konfigurasi Topologi
+![messageImage_1668426672010](https://user-images.githubusercontent.com/102727966/201653357-06f8b91b-54dc-4cc3-8ed4-becf92e849ab.jpg)
 
-<div align="center">
-
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-
-</div>
-
----
-
-<p align="center"> Few lines describing your project.
-    <br> 
-</p>
-
-## 📝 Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
-
-## Nomor 1
-
-Write about 1-2 paragraphs describing the purpose of your project.
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
-
+- Ostania (Router dan DHCP Relay)
 ```
-Give examples
+auto eth0
+iface eth0 inet dhcp
+auto eth1
+iface eth1 inet static
+	address 10.14.1.1
+	netmask 255.255.255.0
+auto eth2
+iface eth2 inet static
+	address 10.14.2.1
+	netmask 255.255.255.0
+auto eth3
+iface eth3 inet static
+	address 10.14.3.1
+	netmask 255.255.255.0
+```
+- SSS (Client)
+```
+auto eth0
+iface eth0 inet dhcp
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
+- Garden (Client)
 ```
-Give the example
+auto eth0
+iface eth0 inet dhcp
 ```
 
-And repeat
-
+- Wise (DNS Server)
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## 🔧 Running the tests <a name = "tests"></a>
-
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+auto eth0
+iface eth0 inet static
+	address 10.14.2.2
+	netmask 255.255.255.0
+	gateway 10.14.2.1
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+- Berlint (Proxy Server)
 ```
-Give an example
+auto eth0
+iface eth0 inet static
+	address 10.14.2.3
+	netmask 255.255.255.0
+	gateway 10.14.2.1
 ```
 
-## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+- Westalis (DHCP Server)
+```
+auto eth0
+iface eth0 inet static
+	address 10.14.2.4
+	netmask 255.255.255.0
+	gateway 10.14.2.1
+```
 
-## 🚀 Deployment <a name = "deployment"></a>
+- Eden (Client)
+```
+auto eth0
+iface eth0 inet dhcp
+```
 
-Add additional notes about how to deploy this on a live system.
+- NewstonCastle (Client)
+```
+auto eth0
+iface eth0 inet dhcp
+```
 
-## ⛏️ Built Using <a name = "built_using"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- KemonoPark (Client)
+```
+auto eth0
+iface eth0 inet dhcp
+```
