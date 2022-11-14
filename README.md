@@ -82,3 +82,54 @@ iface eth0 inet dhcp
 auto eth0
 iface eth0 inet dhcp
 ```
+
+## Nomor 1 dan 2
+
+### Soal
+
+<img width="606" alt="Screenshot 2022-11-14 at 7 04 47 PM" src="https://user-images.githubusercontent.com/102727966/201655943-af824457-9281-434c-a66e-6f9a5fac64c4.png">
+
+#### Loid bersama Franky berencana membuat peta tersebut dengan kriteria WISE sebagai DNS Server, Westalis sebagai DHCP Server, Berlint sebagai Proxy Server (1)
+### Cara Pengerjaan
+
+DNS Server (WISE)
+
+WISE sebagai DNS Server perlu menginstall `bind9`.
+```
+apt-get update
+apt-get install bind9 -y
+```
+DHCP Server (Westalis)
+
+Westalis sebagai DHCP Server perlu menginstall `isc-dhcp-server`.
+
+```
+apt-get update
+apt-get install isc-dhcp-server -y
+```
+
+Proxy Server (Berlint)
+
+Berlint sebagai Proxy Server perlu menginstall `squid`.
+```
+apt-get update
+apt-get install squid -y
+```
+
+#### dan Ostania sebagai DHCP Relay (2). Loid dan Franky menyusun peta tersebut dengan hati-hati dan teliti.
+
+DHCP Relay (Ostania)
+
+Ostania sebagai DHCP Relay perlu menginstall `isc-dhcp-relay`.
+```
+apt-get update
+apt-get install isc-dhcp-relay -y
+```
+
+## Nomor 3
+
+### Soal
+
+Ada beberapa kriteria yang ingin dibuat oleh Loid dan Franky, yaitu:
+Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
+Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155!
