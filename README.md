@@ -281,6 +281,15 @@ http_access allow all !WORKHOUR
 visible_hostname Berlint
 ' > /etc/squid/squid.conf
 ```
+Pada Client
+```
+apt install curl
+apt-get update
+apt install speedtest-cli
+export PYTHONHTTPSVERIFY=0
+export http_proxy="http://10.14.2.3:8080"
+```
+
 ### Kendala
 - Belum bisa memblokir akses website saat workhour
 
