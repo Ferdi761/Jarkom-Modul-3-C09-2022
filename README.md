@@ -238,3 +238,45 @@ subnet 10.2.3.0 netmask 255.255.255.0 {
     max-lease-time 6900;
 }
 ```
+
+## Nomor 7
+### Soal
+Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran informasi dengan
+alamat IP yang tetap dengan IP [prefix IP].3.13
+### Cara Pengerjaan
+
+
+## Squid
+## Nomor 1
+### Soal
+Client hanya dapat mengakses internet diluar (selain) hari & jam kerja (senin-jumat 08.00 - 17.00) dan hari libur (dapat mengakses
+24 jam penuh)
+### Cara Pengerjaan
+
+
+## Nomor 2
+### Soal
+Adapun pada hari dan jam kerja sesuai nomor (1), client hanya dapat mengakses domain loid-work.com dan franky-work.com (IP
+tujuan domain dibebaskan)
+### Cara Pengerjaan
+
+
+## Nomor 3
+### Soal
+Saat akses internet dibuka, client dilarang untuk mengakses web tanpa HTTPS. (Contoh web HTTP: http://example.com)
+### Cara Pengerjaan
+
+## Nomor 4
+### Soal
+Agar menghemat penggunaan, akses internet dibatasi dengan kecepatan maksimum 128 Kbps pada setiap host (Kbps = kilobit
+per second; lakukan pengecekan pada tiap host, ketika 2 host akses internet pada saat bersamaan, keduanya mendapatkan
+speed maksimal yaitu 128 Kbps)
+### Cara Pengerjaan
+
+
+## Nomor 5
+### Soal
+Setelah diterapkan, ternyata peraturan nomor (4) mengganggu produktifitas saat hari kerja, dengan demikian pembatasan
+kecepatan hanya diberlakukan untuk pengaksesan internet pada hari libur
+### Cara Pengerjaan
+
