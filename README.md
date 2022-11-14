@@ -177,4 +177,4 @@ subnet 10.14.3.0 netmask 255.255.255.0 {
 }
 ```
 
-Pada subnet `10.3.1.0` sudah ditentukan range IP dari `10.2.3.10 - 10.2.3.30` dan `10.2.3.60 - 10.2.3.85`
+Pada subnet `10.3.1.0` sudah ditentukan range IP dari `10.14.3.10 - 10.14.3.30` dan `10.14.3.60 - 10.14.3.85`
