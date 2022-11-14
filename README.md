@@ -220,3 +220,21 @@ service isc-dhcp-relay restart
 ```
 cat /etc/resolv.conf
 ```
+
+## Nomor 6
+### Soal
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit!
+### Cara Pengerjaan
+pada file `/etc/dhcp/dhcpd.conf` subnet interface switch 1 dan 3, tambahkan konfigurasi sebagai berikut
+```bash
+subnet 10.2.1.0 netmask 255.255.255.0 {
+	...
+    default-lease-time 300;
+    max-lease-time 6900;
+}
+subnet 10.2.3.0 netmask 255.255.255.0 {
+	...
+    default-lease-time 600;
+    max-lease-time 6900;
+}
+```
