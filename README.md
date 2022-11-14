@@ -133,3 +133,48 @@ apt-get install isc-dhcp-relay -y
 Ada beberapa kriteria yang ingin dibuat oleh Loid dan Franky, yaitu:
 Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
 Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155!
+
+Pada DHCP server (Westalis) dilakukan konfigurasi server pada file `/etc/dhcp/dhcpd.conf` sebagai berikut
+
+```
+echo 'subnet 10.14.2.0 netmask 255.255.255.0 {
+    option routers 10.14.2.1;
+    }
+
+    subnet 10.14.1.0 netmask 255.255.255.0 {
+    range 10.14.1.50 10.14.1.88;
+    range 10.14.1.120 10.14.1.155;
+    option routers 10.14.1.1;
+    option broadcast-address 10.14.1.255;
+    option domain-name-servers 10.14.2.2;
+    default-lease-time 300;
+    max-lease-time 6900;
+    }
+```
+
+Pada subnet `10.14.1.0` sudah ditentukan range IP dari `10.14.1.50 - 10.14.1.88` dan `10.14.1.120 - 10.14.1.155`
+
+## Nomor 4
+
+### Soal
+
+Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.10 - [prefix IP].3.30 dan [prefix IP].3.60 - [prefix IP].3.85!
+
+### Cara Pengerjaan
+
+Pada DHCP Server (Westalis) pada file `/etc/dhcp/dhcpd.conf` menambahkan konfigurasi sebagai berikut
+
+```bash
+subnet 10.14.3.0 netmask 255.255.255.0 {
+    range 10.14.3.10 10.14.3.30;
+    range 10.14.3.60 10.14.3.85;
+    option routers 10.14.3.1;
+    option broadcast-address 10.14.3.255;
+    option domain-name-servers 10.14.2.2;
+    default-lease-time 600;
+    max-lease-time 6900;
+    }
+}
+```
+
+Pada subnet `10.3.1.0` sudah ditentukan range IP dari `10.2.3.10 - 10.2.3.30` dan `10.2.3.60 - 10.2.3.85`
