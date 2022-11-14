@@ -178,3 +178,45 @@ subnet 10.14.3.0 netmask 255.255.255.0 {
 ```
 
 Pada subnet `10.3.1.0` sudah ditentukan range IP dari `10.14.3.10 - 10.14.3.30` dan `10.14.3.60 - 10.14.3.85`
+
+## Nomor 5
+
+### Soal
+
+Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut.
+
+### Cara Pengerjaan
+
+Cara untuk client dapat terhubung dengan internet, pada DNS Server (WISE) pada file `/etc/bind/named.conf.options` lakukan konfigurasi sebagai berikut
+- Pada WISE
+```
+options {
+        directory \"/var/cache/bind\";
+        forwarders {
+        192.168.122.1;
+        };
+        //dnssec-validation auto;
+        allow-query{ any; };
+        auth-nxdomain no;
+        listen-on-v6 { any; };
+    };
+```
+restart bind9
+```
+service bind9 restart
+```
+
+Lakukan restart pada DHPCP server dan DHCP relay
+
+- Pada Westalis
+```
+service isc-dhcp-server restart
+```
+- Pada Ostania
+```
+service isc-dhcp-relay restart
+```
+- Pada Client
+```
+cat /etc/resolv.conf
+```
